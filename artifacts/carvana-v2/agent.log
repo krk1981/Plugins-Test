@@ -1,0 +1,52 @@
+I'll help you create a comprehensive prospect research brief for Carvana. Let me start by reading the sales knowledge base to understand the best practices, then conduct thorough research on Carvana.
+
+> **Read** `artifacts/carvana-v2/knowledge-base.md`
+
+Now let me research Carvana comprehensively using web search to gather all the information needed for the prospect brief.
+
+> **WebSearch** {"query": "Carvana company overview revenue size employees business model 2025 2026"}
+
+> **WebSearch** {"query": "Carvana news press releases August 2025 September October November December January February 2026"}
+
+> **WebSearch** {"query": "Carvana leadership team CEO CTO VP Sales executives \"Ernie Garcia\" management team 2026"}
+
+> **WebSearch** {"query": "Carvana technology stack software engineering tech infrastructure AWS cloud Python Java React"}
+
+> **WebSearch** {"query": "Carvana challenges pain points operational issues logistics inventory management customer service scaling problems 2025 2026"}
+
+Now I have comprehensive research on Carvana. Let me create a detailed prospect research brief with all the findings.
+
+> **Write** `artifacts/carvana-v2/carvana-prospect-brief.md`
+
+✅ **Carvana Prospect Research Brief Complete**
+
+I've created a comprehensive prospect research brief for Carvana and saved it to `artifacts/carvana-v2/carvana-prospect-brief.md`. Here's what the brief includes:
+
+## Key Findings Summary
+
+**Company Profile:**
+- $20.3B revenue in 2025 (+49% growth), 596K+ units sold
+- Recently added to S&P 500, dramatic turnaround from near-bankruptcy
+- 7,687 employees, ambitious goal of 3M annual units by 2030-2035
+
+**Leadership Team:**
+- CEO: Ernie Garcia III (founder-led company since 2012)
+- Strong technical leadership with Dan Gill (Chief Product Officer) overseeing all technology
+
+**Technology Stack:**
+- Modern stack: React/Node.js/Python, Azure cloud, Kubernetes
+- Focus on AI-driven customer support and proprietary CRM
+- Scaling challenges with massive transaction volumes
+
+## High-Value Opportunities Identified
+
+1. **Reconditioning Process Automation** - They have higher-than-expected costs and 3-6 month automation timeline
+2. **Inventory Management & Supply Chain** - Tightening supply pressuring margins, need optimization
+3. **Technology Scaling** - Handling millions of transactions while maintaining performance
+4. **Operational Efficiency** - Balancing rapid growth (toward 3M units) with margin preservation
+
+The brief provides specific talking points for each opportunity and optimal timing rationale. Carvana is in an active scaling phase with strong financials, making them an excellent prospect for operational and technology solutions.
+
+---
+
+**Completed** in 8 turns (cost: $0.1548)
