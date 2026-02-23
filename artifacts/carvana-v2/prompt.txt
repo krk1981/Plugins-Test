@@ -1,0 +1,18 @@
+## Task: carvana-v2
+**Carvana Prospect Research Brief**
+
+## Description
+Research Acme Corp (carvana.com) and prepare a comprehensive prospect brief:
+- Company overview: size, revenue, industry, key products
+- Recent news and press releases (last 6 months)
+- Key decision makers (CEO, CTO, VP Sales)
+- Technology stack they use (if discoverable)
+- Potential pain points our product could solve
+- Recommended talking points for initial outreach
+
+## File Constraints
+You may ONLY modify these files (other files are locked by other agents working in parallel):
+  (no file restrictions — you may modify any file)
+
+If you need to create new files, place them under the directories implied by the locked file paths.
+Do NOT modify files outside your assigned scope — doing so will cause merge conflicts.
