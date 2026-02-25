@@ -17,9 +17,28 @@ sales collateral creation.
 - Create actionable, specific outputs (not generic templates)
 - Include data sources and citations where possible
 
+### MCP Tools — You MUST Use These
+You have access to external services via MCP tools. Use them:
+
+**Gmail** (for email context):
+- `mcp__gmail__gmail_search` — search emails by query
+- `mcp__gmail__gmail_read` — read full email content by ID
+
+**Atlassian / Confluence** (for publishing):
+When the task mentions Confluence, publishing, or creating pages, you MUST use these tools
+to actually publish content to Confluence. Do NOT just create local "Confluence-ready" files.
+1. First call `mcp__atlassian__getAccessibleAtlassianResources` to get the `cloudId`
+2. Then call `mcp__atlassian__getConfluenceSpaces` with that cloudId to get `spaceId`
+3. Use `mcp__atlassian__searchConfluenceUsingCql` to find existing pages
+4. Use `mcp__atlassian__createConfluencePage` to create pages (params: cloudId, spaceId, title, body as markdown, parentId)
+5. Use `mcp__atlassian__updateConfluencePage` to update existing pages
+
 ### Output
 Write your deliverables to `artifacts/m-market-finland/` — the specific files depend on the task type
 (e.g., `prospect-brief.md`, `call-prep.md`, `follow-up-email.md`, `pipeline-analysis.md`, etc.)
+
+If the task asks for Confluence publishing, also publish content using the Atlassian MCP tools above
+and report the page URLs in your final summary.
 
 
 ### Domain Knowledge
