@@ -1,0 +1,14 @@
+## Task: m-market-finland-sales-analysis
+**M-Market Finland Sales analysis**
+
+## Description
+"Set up a deal workspace for M-Market Finland"
+"Work on the M-Market digitization proposal. Check my emails and publish plans to Confluence"
+"Create a sales plan and project plan for M-Market"
+
+## File Constraints
+You may ONLY modify these files (other files are locked by other agents working in parallel):
+  (no file restrictions — you may modify any file)
+
+If you need to create new files, place them under the directories implied by the locked file paths.
+Do NOT modify files outside your assigned scope — doing so will cause merge conflicts.
