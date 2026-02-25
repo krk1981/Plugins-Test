@@ -24,14 +24,14 @@ You have access to external services via MCP tools. Use them:
 - `mcp__gmail__gmail_search` — search emails by query
 - `mcp__gmail__gmail_read` — read full email content by ID
 
-**Atlassian / Confluence** (for publishing):
+**Confluence** (for publishing):
 When the task mentions Confluence, publishing, or creating pages, you MUST use these tools
 to actually publish content to Confluence. Do NOT just create local "Confluence-ready" files.
-1. First call `mcp__atlassian__getAccessibleAtlassianResources` to get the `cloudId`
-2. Then call `mcp__atlassian__getConfluenceSpaces` with that cloudId to get `spaceId`
-3. Use `mcp__atlassian__searchConfluenceUsingCql` to find existing pages
-4. Use `mcp__atlassian__createConfluencePage` to create pages (params: cloudId, spaceId, title, body as markdown, parentId)
-5. Use `mcp__atlassian__updateConfluencePage` to update existing pages
+1. Call `mcp__confluence__confluence_get_spaces` to list spaces and get a `space_id`
+2. Use `mcp__confluence__confluence_search_pages` with CQL to find existing pages
+3. Use `mcp__confluence__confluence_create_page` to create pages (params: space_id, title, body as markdown, parent_id)
+4. Use `mcp__confluence__confluence_update_page` to update existing pages (params: page_id, title, body, version_number)
+5. Use `mcp__confluence__confluence_get_page` to get a page by ID (e.g. to get the current version number before updating)
 
 ### Output
 Write your deliverables to `artifacts/m-market-finland/` — the specific files depend on the task type
