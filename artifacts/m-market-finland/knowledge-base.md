@@ -2546,44 +2546,146 @@ Generate a project/implementation plan based on deal context.
 
 ## Phase 4: Confluence Publishing
 
-### Step 4.1: Check for Existing Pages
+**IMPORTANT: You MUST publish to Confluence using the Atlassian MCP tools below. Do NOT skip this phase or just create local "Confluence-ready" files. The user expects the content to appear in their Confluence instance.**
 
-Use the Atlassian MCP server to search Confluence:
+### Step 4.1: Get Your Atlassian Cloud ID
 
-```
-Search: "Deals [Company Name]" in Confluence
-- If space/page exists → update existing pages
-- If not found → create new page hierarchy
-```
-
-### Step 4.2: Page Hierarchy
-
-Create this structure in Confluence:
+**This is required before any Confluence operation.** Call:
 
 ```
-[Space: Deals] (or user-specified space)
-  └── [Company Name]              ← Parent page
-       ├── Sales Plan              ← Sales plan content
-       ├── Project Plan            ← Project plan content
-       └── Email Context           ← Summary of email research (optional)
+Tool: mcp__atlassian__getAccessibleAtlassianResources
+Parameters: (none required)
 ```
 
-### Step 4.3: Publish Pages
+This returns a list of Atlassian cloud sites. Extract the `id` field — this is your `cloudId`. You need it for every subsequent Confluence call.
 
-For each page:
-1. Convert markdown content to Confluence-compatible format
-2. Create the page using the Atlassian MCP `create_page` tool
-3. Add labels: `deal`, `[company-name]`, `[deal-type]`, `sales-plan` or `project-plan`
-4. Report back the page URLs to the user
+### Step 4.2: Find the Target Space
 
-### Step 4.4: Handle Updates
+Call `mcp__atlassian__getConfluenceSpaces` to list available spaces:
 
-If pages already exist from a previous run:
-- Search for existing pages by title under the company parent page
-- Update the content rather than creating duplicates
-- Add a "Last Updated" note at the top of each page
+```
+Tool: mcp__atlassian__getConfluenceSpaces
+Parameters:
+  cloudId: "<cloudId from step 4.1>"
+```
 
-See `references/confluence-publishing.md` for detailed Atlassian MCP patterns.
+Pick the space the user specified, or use the first available space. Note the `id` field — this is your `spaceId`.
+
+### Step 4.3: Search for Existing Pages
+
+Search for existing deal pages to avoid duplicates:
+
+```
+Tool: mcp__atlassian__searchConfluenceUsingCql
+Parameters:
+  cloudId: "<cloudId>"
+  cql: "title = \"[Company Name]\" AND type = page"
+```
+
+Also search for "Deals" parent page:
+
+```
+Tool: mcp__atlassian__searchConfluenceUsingCql
+Parameters:
+  cloudId: "<cloudId>"
+  cql: "title = \"Deals\" AND type = page AND space.id = <spaceId>"
+```
+
+### Step 4.4: Create Page Hierarchy
+
+Target structure:
+
+```
+[Space]
+  └── Deals                        ← Top-level parent (create once)
+       └── [Company Name]           ← Per-deal parent page
+            ├── Sales Plan           ← Sales plan content
+            ├── Project Plan         ← Project plan content
+            └── Email Context        ← Summary (optional)
+```
+
+**Create the "Deals" parent page** (if not found in step 4.3):
+
+```
+Tool: mcp__atlassian__createConfluencePage
+Parameters:
+  cloudId: "<cloudId>"
+  spaceId: "<spaceId>"
+  title: "Deals"
+  body: "This space contains deal workspaces managed by the sales agent."
+```
+
+**Create the "[Company Name]" page** under Deals:
+
+```
+Tool: mcp__atlassian__createConfluencePage
+Parameters:
+  cloudId: "<cloudId>"
+  spaceId: "<spaceId>"
+  parentId: "<deals-page-id>"
+  title: "[Company Name]"
+  body: "Deal workspace for [Company Name].\n\nCreated: [Date]\nDeal Type: [Type]"
+```
+
+### Step 4.5: Publish Content Pages
+
+**Create the Sales Plan page:**
+
+```
+Tool: mcp__atlassian__createConfluencePage
+Parameters:
+  cloudId: "<cloudId>"
+  spaceId: "<spaceId>"
+  parentId: "<company-page-id>"
+  title: "Sales Plan"
+  body: "<full sales plan markdown content from Phase 2>"
+```
+
+**Create the Project Plan page:**
+
+```
+Tool: mcp__atlassian__createConfluencePage
+Parameters:
+  cloudId: "<cloudId>"
+  spaceId: "<spaceId>"
+  parentId: "<company-page-id>"
+  title: "Project Plan"
+  body: "<full project plan markdown content from Phase 3>"
+```
+
+The body parameter accepts **Markdown format** — the Atlassian MCP server converts it to Confluence storage format automatically.
+
+### Step 4.6: Handle Updates (Re-runs)
+
+If pages already exist (found in step 4.3):
+
+```
+Tool: mcp__atlassian__updateConfluencePage
+Parameters:
+  cloudId: "<cloudId>"
+  pageId: "<existing-page-id>"
+  title: "<same title>"
+  status: "current"
+  body: "<updated content>"
+  versionNumber: <current version + 1>
+  versionMessage: "Updated by deal-workspace agent on [Date]"
+```
+
+To get the current version number, first read the page:
+
+```
+Tool: mcp__atlassian__getConfluencePage
+Parameters:
+  cloudId: "<cloudId>"
+  pageId: "<page-id>"
+```
+
+### Step 4.7: Report Published URLs
+
+After publishing, report each page URL to the user. Confluence pages are accessible at:
+`https://[site].atlassian.net/wiki/spaces/[spaceKey]/pages/[pageId]`
+
+See `references/confluence-publishing.md` for additional patterns and error handling.
 
 ---
 
