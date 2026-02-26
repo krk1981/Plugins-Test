@@ -1,0 +1,11 @@
+**Agent:** `sales-agent-001` | **Phase:** `sales` | **Tech Stack:** `greenfield`
+
+**Provider:** `anthropic` | **Model:** `claude-sonnet-4-6` | **Budget:** $`2.00` | **Max Turns:** `50` | **Tools:** `7`
+
+### Skill: none (hardcoded fallback)
+> Using built-in phase prompt — no skill file matched for this phase/tech stack.
+
+---
+
+**Exception:** Command failed with exit code 1 (exit code: 1)
+Error output: Check stderr output for details
