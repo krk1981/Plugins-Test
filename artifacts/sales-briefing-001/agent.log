@@ -1,0 +1,63 @@
+**Agent:** `sales-briefing-001` | **Phase:** `sales` | **Tech Stack:** `greenfield`
+
+**Provider:** `anthropic` | **Model:** `claude-sonnet-4-6` | **Budget:** $`2.00` | **Max Turns:** `20` | **Tools:** `7`
+
+### Skill: none (hardcoded fallback)
+> Using built-in phase prompt — no skill file matched for this phase/tech stack.
+
+---
+
+> **Read** `C:\Work\code\coworkandme\Productivity\claude-code-agents\workspace\memory\MEMORY.md`
+
+> **Glob** `**/*`
+
+> **Bash** `List workspace contents`
+
+> **Bash** `List all artifact files and read README`
+
+> **Read** `artifacts/sales-briefing-001/prompt.txt`
+
+> **Read** `artifacts/sales-briefing-001/system_prompt_append.txt`
+
+> **Read** `artifacts/m-market-finland-sales-analysis/deal-context-brief.md`
+
+> **Read** `artifacts/m-market-finland/deal-summary.md`
+
+> **Read** `artifacts/carvana-v2/carvana-prospect-brief.md`
+
+> **Read** `artifacts/m-market-finland-sales-analysis/sales-plan.md`
+
+> **Read** `artifacts/m-market-finland/executive-summary-action-plan.md`
+
+Now I have enough context to write the daily briefing. Let me create it.
+
+> **Bash** `Ensure output directory exists`
+
+> **Write** `artifacts/sales-briefing-001/daily-briefing.md`
+
+The daily briefing has been written to `artifacts/sales-briefing-001/daily-briefing.md`. Here's a summary:
+
+---
+
+## Daily Sales Briefing — Feb 26, 2026
+
+### Pipeline Health: MODERATE
+
+| Deal | Value | Health |
+|------|-------|--------|
+| M-Market Finland Digitization | €2.5–3.5M | 🟡 Watch |
+| Carvana (US) | TBD | 🔴 At Risk |
+| M-Market General | €350–400K | 🟡 Watch |
+
+### At-Risk Deals
+1. **Carvana** — Research is done but zero outreach has happened. The post-earnings window is the optimal entry point and it's closing fast.
+2. **M-Market Finland CFO** — Saara Lindberg (budget gatekeeper) is "Cautious" and the executive presentation is in 5 days. An ROI model tuned to her concerns is not yet confirmed ready.
+
+### Top 3 Priority Actions Today
+1. **Finalize CFO-grade ROI model for M-Market Finland** — Executive presentation is March 3; needs to be done by Feb 28 at the latest.
+2. **Initiate Carvana outreach today** — Target CPO Dan Gill with a reconditioning-automation angle tied to their Q4 earnings commentary.
+3. **Deduplicate M-Market vs. M-Market Finland deals** — Two parallel tracks risk conflicting communications; consolidate by Feb 27.
+
+---
+
+**Completed** in 14 turns (cost: $0.3448)
