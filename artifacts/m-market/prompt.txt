@@ -2,7 +2,7 @@
 **M-Market**
 
 ## Description
-Work on the M-Market digitization proposal. Check my emails and publish plans to Confluence
+check my emails and let me know what is the progress on M-Market modernization
 
 ## File Constraints
 You may ONLY modify these files (other files are locked by other agents working in parallel):
