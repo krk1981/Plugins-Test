@@ -1,0 +1,12 @@
+## Task: sales-agent-001
+**Smart Sales Agent - Account Research & Outreach**
+
+## Description
+Run the sales domain agent to perform account research on a target prospect, prepare a call brief, and draft personalized outreach sequences. Use all available sales skills: account-research, call-prep, draft-outreach, competitive-intelligence, and daily-briefing.
+
+## File Constraints
+You may ONLY modify these files (other files are locked by other agents working in parallel):
+  (no file restrictions — you may modify any file)
+
+If you need to create new files, place them under the directories implied by the locked file paths.
+Do NOT modify files outside your assigned scope — doing so will cause merge conflicts.
