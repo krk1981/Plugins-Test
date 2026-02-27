@@ -1,0 +1,48 @@
+**Agent:** `schedule-check-001` | **Phase:** `productivity` | **Tech Stack:** `greenfield`
+
+**Provider:** `anthropic` | **Model:** `claude-sonnet-4-6` | **Budget:** $`2.00` | **Max Turns:** `20` | **Tools:** `7`
+
+### Skill: none (hardcoded fallback)
+> Using built-in phase prompt — no skill file matched for this phase/tech stack.
+
+---
+
+> **Read** `C:\Users\anura\.claude\projects\C--Work-code-coworkandme-Productivity-claude-code-agents-workspace\memory\MEMORY.md`
+
+> **Glob** `**/*.md`
+
+> **Glob** `**/*schedule*`
+
+> **Glob** `.claude/**/*`
+
+> **Glob** `**/*`
+
+> **Glob** `**/*.json`
+
+> **Read** `artifacts/schedule-check-001/prompt.txt`
+
+> **Read** `artifacts/schedule-check-001/system_prompt_append.txt`
+
+> **Glob** `**/*skill*`
+
+> **Glob** `**/*plugin*`
+
+> **Glob** `**/*`
+
+> **Read** `README.md`
+
+> **Skill** {"skill": "my-schedule"}
+
+The `my-schedule` skill is not available in this environment. I'll produce the output artifact documenting this and providing the schedule summary based on available context.
+
+> **Write** `artifacts/schedule-check-001/schedule-summary.md`
+
+The `my-schedule` skill is not available in this environment — it isn't listed among the loaded skills. I've written the result to `artifacts/schedule-check-001/schedule-summary.md` noting:
+
+- **Date checked:** Friday, February 27, 2026
+- **Outcome:** No calendar data could be retrieved — the `my-schedule` skill is not installed/configured
+- **Recommendation:** Install the productivity plugin that provides `my-schedule` and re-run the task
+
+---
+
+**Completed** in 15 turns (cost: $0.2467)
