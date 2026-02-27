@@ -1,0 +1,12 @@
+## Task: sales-briefing-001
+**Daily Sales Briefing**
+
+## Description
+Run the daily-briefing skill for the sales team. Summarize pipeline health, flag any at-risk deals, and list the top 3 priority actions for today.
+
+## File Constraints
+You may ONLY modify these files (other files are locked by other agents working in parallel):
+  (no file restrictions — you may modify any file)
+
+If you need to create new files, place them under the directories implied by the locked file paths.
+Do NOT modify files outside your assigned scope — doing so will cause merge conflicts.
